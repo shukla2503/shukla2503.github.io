@@ -40,6 +40,20 @@
     });
   }
 
+  // --- Top Announcement Bar ---
+  var topAnnouncement = document.getElementById('topAnnouncement');
+  var announcementClose = document.getElementById('announcementClose');
+
+  if (announcementClose && topAnnouncement && header) {
+    announcementClose.addEventListener('click', function (e) {
+      e.preventDefault();
+      topAnnouncement.classList.add('hidden');
+      header.classList.remove('has-announcement');
+      header.classList.add('announcement-closed');
+      document.body.classList.add('announcement-closed');
+    });
+  }
+
   // --- Sticky Header Shadow ---
   const header = document.getElementById('header');
   function handleScroll() {
@@ -184,9 +198,8 @@
       // Basic validation
       var name = document.getElementById('name');
       var phone = document.getElementById('phone');
-      var email = document.getElementById('email');
 
-      if (!name.value.trim() || !phone.value.trim() || !email.value.trim()) {
+      if (!name.value.trim() || !phone.value.trim()) {
         return;
       }
 
@@ -202,6 +215,75 @@
       setTimeout(function () {
         if (formSuccess) formSuccess.classList.remove('show');
       }, 5000);
+    });
+  }
+
+  // --- Floating Founding CTA visibility ---
+  var floatingCta = document.getElementById('floatingFoundingCta');
+  var foundingBanner = document.getElementById('foundingBanner');
+  var foundingFormSection = document.getElementById('foundingForm');
+
+  function toggleFloatingCta() {
+    if (!floatingCta || !foundingBanner) return;
+    var bannerBottom = foundingBanner.getBoundingClientRect().bottom;
+    var formInView = false;
+    if (foundingFormSection) {
+      var formRect = foundingFormSection.getBoundingClientRect();
+      formInView = formRect.top < window.innerHeight && formRect.bottom > 0;
+    }
+    // Show floating CTA after scrolling past the banner, but hide when form is in view
+    if (bannerBottom < 0 && !formInView) {
+      floatingCta.classList.add('visible');
+    } else {
+      floatingCta.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', toggleFloatingCta, { passive: true });
+
+  // --- Founding Parent Interest Form Handler ---
+  var foundingForm = document.getElementById('foundingParentForm');
+  var foundingSuccess = document.getElementById('foundingFormSuccess');
+
+  if (foundingForm) {
+    foundingForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Basic validation
+      var parentName = document.getElementById('parentName');
+      var childGrade = document.getElementById('childGrade');
+      var parentPhone = document.getElementById('parentPhone');
+      var parentEmail = document.getElementById('parentEmail');
+      var parentArea = document.getElementById('parentArea');
+
+      if (!parentName.value.trim() || !childGrade.value || !parentPhone.value.trim() || !parentEmail.value.trim() || !parentArea.value.trim()) {
+        return;
+      }
+
+      // Check at least one interest is selected
+      var interests = foundingForm.querySelectorAll('input[name="interests"]:checked');
+      if (interests.length === 0) {
+        return;
+      }
+
+      // Check radio selection
+      var attendSession = foundingForm.querySelector('input[name="attendSession"]:checked');
+      if (!attendSession) {
+        return;
+      }
+
+      // Show success message
+      if (foundingSuccess) {
+        foundingSuccess.classList.add('show');
+      }
+
+      // Hide the form
+      foundingForm.style.display = 'none';
+
+      // Scroll to success message
+      if (foundingSuccess) {
+        foundingSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     });
   }
 
