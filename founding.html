@@ -62,6 +62,7 @@
               <label for="childGrade">Child's Grade <span class="required">*</span></label>
               <select id="childGrade" name="childGrade" required>
                 <option value="" disabled selected>Select Grade</option>
+                <option value="6">Grade 6</option>
                 <option value="7">Grade 7</option>
                 <option value="8">Grade 8</option>
                 <option value="9">Grade 9</option>
@@ -107,6 +108,67 @@
                 <input type="checkbox" name="interests" value="360° Excellence Program">
                 <span class="checkmark"></span>
                 360&deg; Excellence Program
+              </label>
+            </div>
+          </div>
+          <!-- Subject Selection (appears when Academic Excellence is checked) -->
+          <div class="form-group subject-selector" id="subjectSelector" style="display: none;">
+            <label>Which subjects are you interested in? <span class="required">*</span></label>
+            <p class="subject-hint" id="subjectHint">Please select a grade above to see available subjects.</p>
+            <!-- Grade 6-10 Subjects -->
+            <div class="checkbox-group subject-group" id="subjects6to10" style="display: none;">
+              <label class="checkbox-label">
+                <input type="checkbox" name="subjects" value="Mathematics">
+                <span class="checkmark"></span>
+                📐 Mathematics
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subjects" value="Science">
+                <span class="checkmark"></span>
+                🔬 Science
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subjects" value="English">
+                <span class="checkmark"></span>
+                📝 English
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subjects" value="Social Studies">
+                <span class="checkmark"></span>
+                🌍 Social Studies
+              </label>
+            </div>
+            <!-- Grade 11-12 Subjects -->
+            <div class="checkbox-group subject-group" id="subjects11to12" style="display: none;">
+              <label class="checkbox-label">
+                <input type="checkbox" name="subjects" value="Accountancy">
+                <span class="checkmark"></span>
+                📊 Accountancy
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subjects" value="Economics">
+                <span class="checkmark"></span>
+                📈 Economics
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subjects" value="English (Core)">
+                <span class="checkmark"></span>
+                📖 English (Core)
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subjects" value="Physics">
+                <span class="checkmark"></span>
+                ⚡ Physics
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subjects" value="Chemistry">
+                <span class="checkmark"></span>
+                🧪 Chemistry
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="subjects" value="Mathematics (11-12)">
+                <span class="checkmark"></span>
+                ∑ Mathematics
               </label>
             </div>
           </div>
