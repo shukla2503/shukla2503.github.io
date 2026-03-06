@@ -2219,6 +2219,51 @@ body.announcement-closed .hero {
   padding: 1.25rem;
 }
 
+/* Subject Selector */
+.subject-selector {
+  background: linear-gradient(135deg, rgba(247, 162, 27, 0.06), rgba(15, 37, 87, 0.04));
+  border: 1px dashed var(--secondary);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  animation: subjectSlideIn 0.35s ease-out;
+}
+
+@keyframes subjectSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 500px;
+  }
+}
+
+.subject-selector > label {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.subject-hint {
+  color: var(--gray);
+  font-size: 0.82rem;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.subject-group {
+  animation: subjectSlideIn 0.3s ease-out;
+}
+
+.subject-group .checkbox-label {
+  font-size: 0.88rem;
+}
+
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
