@@ -23,10 +23,11 @@
         </a>
         <div class="nav-links" id="navLinks">
           <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="courses.html">Courses</a>
+          <a href="about.html">Vision</a>
+          <a href="courses.html">Learning Pathways</a>
+          <a href="insights.html">Insights</a>
           <a href="contact.html" class="active">Contact</a>
-          <a href="contact.html" class="nav-cta">Enroll Now</a>
+          <a href="founding.html" class="nav-cta">Join the Founding List</a>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
           <span></span><span></span><span></span>
@@ -45,95 +46,59 @@
   <!-- Contact Section -->
   <section class="section">
     <div class="container">
-      <div class="contact-grid">
-        <!-- Contact Form -->
-        <div class="contact-form">
-          <h3>Send Us a Message</h3>
-          <form id="contactForm" action="#" method="POST">
-            <div class="form-group">
-              <label for="name">Full Name *</label>
-              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email">
-            </div>
-            <div class="form-group">
-              <label for="course">Interested In</label>
-              <select id="course" name="course">
-                <option value="">Select a course</option>
-                <option value="grade-6-10">Grade 6–10 Coaching</option>
-                <option value="grade-11-12">Grade 11–12 Coaching</option>
-                <option value="skill-dev">Skill Development</option>
-                <option value="leadership">Leadership Training</option>
-                <option value="other">Other / General Inquiry</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your requirements..." rows="4"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
-            <div class="form-success" id="formSuccess">
-              ✅ Thank you! Your message has been sent successfully. We'll get back to you shortly.
-            </div>
-          </form>
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+        <div class="accent-line"></div>
+        <p>We're just getting started! Reach out to us through any of these channels.</p>
+      </div>
+      <div class="contact-cards-grid">
+        <div class="contact-info-card">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Call Us</h4>
+            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+            <p>Mon–Sat: 9:00 AM – 7:00 PM</p>
+          </div>
         </div>
+        <div class="contact-info-card">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email Us</h4>
+            <p><a href="mailto:info@embracelearning.in">info@embracelearning.in</a></p>
+            <p>We respond within 24 hours</p>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Visit Us</h4>
+            <p>123 Education Lane,<br>Knowledge City, State – 400001</p>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/919876543210" target="_blank">Chat on WhatsApp</a></p>
+            <p>Quick responses guaranteed</p>
+          </div>
+        </div>
+      </div>
 
-        <!-- Contact Info Side -->
-        <div class="contact-info-side">
-          <div class="contact-info-card">
-            <div class="contact-icon">📞</div>
-            <div>
-              <h4>Call Us</h4>
-              <p><a href="tel:+919876543210">+91 98765 43210</a></p>
-              <p>Mon–Sat: 9:00 AM – 7:00 PM</p>
-            </div>
-          </div>
-          <div class="contact-info-card">
-            <div class="contact-icon">✉️</div>
-            <div>
-              <h4>Email Us</h4>
-              <p><a href="mailto:info@embracelearning.in">info@embracelearning.in</a></p>
-              <p>We respond within 24 hours</p>
-            </div>
-          </div>
-          <div class="contact-info-card">
-            <div class="contact-icon">📍</div>
-            <div>
-              <h4>Visit Us</h4>
-              <p>123 Education Lane,<br>Knowledge City, State – 400001</p>
-            </div>
-          </div>
-          <div class="contact-info-card">
-            <div class="contact-icon">💬</div>
-            <div>
-              <h4>WhatsApp</h4>
-              <p><a href="https://wa.me/919876543210" target="_blank">Chat on WhatsApp</a></p>
-              <p>Quick responses guaranteed</p>
-            </div>
-          </div>
+      <!-- Map Placeholder -->
+      <div class="map-placeholder" style="max-width:700px;margin:2.5rem auto 0;">
+        <span style="font-size:2rem;">📍</span>
+        <p>Google Map will be embedded here</p>
+      </div>
 
-          <!-- Map Placeholder -->
-          <div class="map-placeholder">
-            <span style="font-size:2rem;">📍</span>
-            <p>Google Map will be embedded here</p>
-          </div>
-
-          <!-- Social Links -->
-          <div style="text-align:center;">
-            <h4 style="color:var(--primary);margin-bottom:0.75rem;font-weight:600;">Follow Us</h4>
-            <div class="social-links" style="justify-content:center;">
-              <a href="#" class="social-link" aria-label="Facebook">FB</a>
-              <a href="#" class="social-link" aria-label="Instagram">IG</a>
-              <a href="#" class="social-link" aria-label="YouTube">YT</a>
-              <a href="#" class="social-link" aria-label="WhatsApp">WA</a>
-            </div>
-          </div>
+      <!-- Social Links -->
+      <div style="text-align:center;margin-top:2rem;">
+        <h4 style="color:var(--primary);margin-bottom:0.75rem;font-weight:600;">Follow Us</h4>
+        <div class="social-links" style="justify-content:center;">
+          <a href="#" class="social-link" aria-label="Facebook">FB</a>
+          <a href="#" class="social-link" aria-label="Instagram">IG</a>
+          <a href="#" class="social-link" aria-label="YouTube">YT</a>
+          <a href="#" class="social-link" aria-label="WhatsApp">WA</a>
         </div>
       </div>
     </div>
@@ -211,18 +176,19 @@
           <h4>Quick Links</h4>
           <div class="footer-links">
             <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="courses.html">Courses</a>
+            <a href="about.html">Vision</a>
+            <a href="courses.html">Learning Pathways</a>
+            <a href="insights.html">Insights</a>
             <a href="contact.html">Contact</a>
           </div>
         </div>
         <div>
-          <h4>Courses</h4>
+          <h4>Explore</h4>
           <div class="footer-links">
             <a href="courses.html">Grade 6–10</a>
             <a href="courses.html">Grade 11–12</a>
             <a href="courses.html">Skill Development</a>
-            <a href="courses.html">Leadership Training</a>
+            <a href="founding.html">Join the Founding List</a>
           </div>
         </div>
         <div>

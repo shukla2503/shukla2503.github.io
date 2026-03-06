@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the Founding List - Embrace Learning | Share Your Interest</title>
+  <meta name="description" content="Join the founding community of Embrace Learning. Tell us what matters most for your child's future and help shape our programs.">
+  <meta name="keywords" content="founding parent, interest form, Embrace Learning founding list, parent survey">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📘</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">EL</div>
+          Embrace <span>Learning</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">Vision</a>
+          <a href="courses.html">Learning Pathways</a>
+          <a href="insights.html">Insights</a>
+          <a href="contact.html">Contact</a>
+          <a href="founding.html" class="nav-cta active">Join the Founding List</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header" style="background-image: linear-gradient(135deg, rgba(15,37,87,0.92), rgba(30,86,160,0.88)), url('images/teamwork.jpg'); background-size: cover; background-position: center;">
+    <h1>Join the Founding List</h1>
+    <p>Your voice shapes what we build. Tell us what matters most for your child — it takes under a minute.</p>
+  </section>
+
+  <!-- Founding Parent Interest Form -->
+  <section class="section founding-form-section" id="foundingForm">
+    <div class="container">
+      <div class="section-title">
+        <h2>We'd Love to Hear from You</h2>
+        <div class="accent-line"></div>
+        <p>As a founding institution, your inputs shape what we build. Just tell us what matters most for your child — it takes under a minute.</p>
+      </div>
+      <div class="founding-form-wrapper">
+        <form id="foundingParentForm" class="founding-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="parentName">Parent Name <span class="required">*</span></label>
+              <input type="text" id="parentName" name="parentName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="childGrade">Child's Grade <span class="required">*</span></label>
+              <select id="childGrade" name="childGrade" required>
+                <option value="" disabled selected>Select Grade</option>
+                <option value="7">Grade 7</option>
+                <option value="8">Grade 8</option>
+                <option value="9">Grade 9</option>
+                <option value="10">Grade 10</option>
+                <option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="parentPhone">Phone No <span class="required">*</span></label>
+              <input type="tel" id="parentPhone" name="parentPhone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+              <label for="parentEmail">Email <span class="required">*</span></label>
+              <input type="email" id="parentEmail" name="parentEmail" placeholder="Enter your email address" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="parentArea">Area <span class="required">*</span></label>
+            <input type="text" id="parentArea" name="parentArea" placeholder="Enter your area / locality" required>
+          </div>
+          <div class="form-group">
+            <label>Which areas interest you most? <span class="required">*</span></label>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="interests" value="Academic Excellence">
+                <span class="checkmark"></span>
+                Academic Excellence
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="interests" value="Leadership Program">
+                <span class="checkmark"></span>
+                Leadership Program
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="interests" value="Emotional Intelligence">
+                <span class="checkmark"></span>
+                Emotional Intelligence
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="interests" value="360° Excellence Program">
+                <span class="checkmark"></span>
+                360&deg; Excellence Program
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Would you attend a free introductory session? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="attendSession" value="Yes" required>
+                <span class="radio-mark"></span>
+                Yes
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="attendSession" value="Maybe">
+                <span class="radio-mark"></span>
+                Maybe
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="attendSession" value="No">
+                <span class="radio-mark"></span>
+                No
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary founding-submit-btn">Share My Interest</button>
+          <p class="form-privacy">🔒 We respect your privacy. No spam. Only meaningful updates.</p>
+        </form>
+        <div id="foundingFormSuccess" class="form-success">
+          ✅ Thank you for sharing! Your voice truly matters to us. We'll keep you updated with only what's meaningful.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Have Questions?</h2>
+      <p>Reach out to us directly — we'd love to chat about your child's learning journey.</p>
+      <a href="contact.html" class="btn btn-primary">Contact Us</a>
+      <a href="courses.html" class="btn btn-outline">Explore Learning Pathways</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">EL</div>
+            Embrace <span>Learning</span>
+          </div>
+          <p>Empowering students with knowledge, confidence, and life skills for a brighter tomorrow.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Vision</a>
+            <a href="courses.html">Learning Pathways</a>
+            <a href="insights.html">Insights</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="courses.html">Grade 6–10</a>
+            <a href="courses.html">Grade 11–12</a>
+            <a href="courses.html">Skill Development</a>
+            <a href="founding.html">Join the Founding List</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-links">
+            <a href="tel:+919876543210">+91 98765 43210</a>
+            <a href="mailto:info@embracelearning.in">info@embracelearning.in</a>
+            <a>123 Education Lane, City</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Embrace Learning. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">FB</a>
+          <a href="#" class="social-link" aria-label="Instagram">IG</a>
+          <a href="#" class="social-link" aria-label="YouTube">YT</a>
+          <a href="#" class="social-link" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+  <script src="js/script.js"></script>
+</body>
+</html>
