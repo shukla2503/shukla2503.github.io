@@ -245,6 +245,71 @@
   var foundingForm = document.getElementById('foundingParentForm');
   var foundingSuccess = document.getElementById('foundingFormSuccess');
 
+  // --- Subject Selector: show/hide based on grade + Academic Excellence ---
+  var subjectSelector = document.getElementById('subjectSelector');
+  var subjectHint = document.getElementById('subjectHint');
+  var subjects6to10 = document.getElementById('subjects6to10');
+  var subjects11to12 = document.getElementById('subjects11to12');
+  var gradeSelect = document.getElementById('childGrade');
+
+  function isAcademicExcellenceChecked() {
+    var cb = foundingForm && foundingForm.querySelector('input[name="interests"][value="Academic Excellence"]');
+    return cb && cb.checked;
+  }
+
+  function updateSubjectVisibility() {
+    if (!subjectSelector) return;
+    var acadChecked = isAcademicExcellenceChecked();
+    var grade = gradeSelect ? gradeSelect.value : '';
+
+    if (!acadChecked) {
+      subjectSelector.style.display = 'none';
+      clearSubjectCheckboxes();
+      return;
+    }
+
+    subjectSelector.style.display = '';
+
+    if (!grade) {
+      if (subjectHint) subjectHint.style.display = '';
+      if (subjects6to10) subjects6to10.style.display = 'none';
+      if (subjects11to12) subjects11to12.style.display = 'none';
+      return;
+    }
+
+    if (subjectHint) subjectHint.style.display = 'none';
+    var gradeNum = parseInt(grade, 10);
+
+    if (gradeNum >= 6 && gradeNum <= 10) {
+      if (subjects6to10) subjects6to10.style.display = '';
+      if (subjects11to12) { subjects11to12.style.display = 'none'; clearGroupCheckboxes(subjects11to12); }
+    } else if (gradeNum === 11 || gradeNum === 12) {
+      if (subjects11to12) subjects11to12.style.display = '';
+      if (subjects6to10) { subjects6to10.style.display = 'none'; clearGroupCheckboxes(subjects6to10); }
+    }
+  }
+
+  function clearSubjectCheckboxes() {
+    if (subjects6to10) clearGroupCheckboxes(subjects6to10);
+    if (subjects11to12) clearGroupCheckboxes(subjects11to12);
+  }
+
+  function clearGroupCheckboxes(group) {
+    var cbs = group.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < cbs.length; i++) { cbs[i].checked = false; }
+  }
+
+  // Listen on the Academic Excellence checkbox and grade dropdown
+  if (foundingForm) {
+    var acadCb = foundingForm.querySelector('input[name="interests"][value="Academic Excellence"]');
+    if (acadCb) {
+      acadCb.addEventListener('change', updateSubjectVisibility);
+    }
+    if (gradeSelect) {
+      gradeSelect.addEventListener('change', updateSubjectVisibility);
+    }
+  }
+
   if (foundingForm) {
     foundingForm.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -264,6 +329,16 @@
       var interests = foundingForm.querySelectorAll('input[name="interests"]:checked');
       if (interests.length === 0) {
         return;
+      }
+
+      // If Academic Excellence is selected, at least one subject must be chosen
+      if (isAcademicExcellenceChecked()) {
+        var subjects = foundingForm.querySelectorAll('input[name="subjects"]:checked');
+        if (subjects.length === 0) {
+          var subjectEl = document.getElementById('subjectSelector');
+          if (subjectEl) subjectEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
       }
 
       // Check radio selection
