@@ -40,6 +40,9 @@
     });
   }
 
+  // --- Sticky Header Shadow ---
+  const header = document.getElementById('header');
+
   // --- Top Announcement Bar ---
   var topAnnouncement = document.getElementById('topAnnouncement');
   var announcementClose = document.getElementById('announcementClose');
@@ -53,9 +56,6 @@
       document.body.classList.add('announcement-closed');
     });
   }
-
-  // --- Sticky Header Shadow ---
-  const header = document.getElementById('header');
   function handleScroll() {
     if (!header) return;
     if (window.scrollY > 50) {
@@ -311,7 +311,7 @@
   }
 
   if (foundingForm) {
-    foundingForm.addEventListener('submit', function (e) {
+    foundingForm.addEventListener('submit', async function (e) {
       e.preventDefault();
 
       // Basic validation
@@ -322,12 +322,14 @@
       var parentArea = document.getElementById('parentArea');
 
       if (!parentName.value.trim() || !childGrade.value || !parentPhone.value.trim() || !parentEmail.value.trim() || !parentArea.value.trim()) {
+        alert('Please fill in all required fields.');
         return;
       }
 
       // Check at least one interest is selected
       var interests = foundingForm.querySelectorAll('input[name="interests"]:checked');
       if (interests.length === 0) {
+        alert('Please select at least one area of interest.');
         return;
       }
 
@@ -335,6 +337,7 @@
       if (isAcademicExcellenceChecked()) {
         var subjects = foundingForm.querySelectorAll('input[name="subjects"]:checked');
         if (subjects.length === 0) {
+          alert('Please select at least one subject under Academic Excellence.');
           var subjectEl = document.getElementById('subjectSelector');
           if (subjectEl) subjectEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
           return;
@@ -344,20 +347,57 @@
       // Check radio selection
       var attendSession = foundingForm.querySelector('input[name="attendSession"]:checked');
       if (!attendSession) {
+        alert('Please select whether you would attend a free introductory session.');
         return;
       }
 
-      // Show success message
-      if (foundingSuccess) {
-        foundingSuccess.classList.add('show');
-      }
+      // Collect form data
+      var subjectCheckboxes = foundingForm.querySelectorAll('input[name="subjects"]:checked');
+      var formData = {
+        parentName: parentName.value.trim(),
+        childGrade: childGrade.value,
+        parentPhone: parentPhone.value.trim(),
+        parentEmail: parentEmail.value.trim(),
+        parentArea: parentArea.value.trim(),
+        interests: Array.from(interests).map(function(cb) { return cb.value; }).join(', '),
+        subjects: Array.from(subjectCheckboxes).map(function(cb) { return cb.value; }).join(', '),
+        attendSession: attendSession.value
+      };
 
-      // Hide the form
-      foundingForm.style.display = 'none';
+      // Disable button & show loading
+      var submitBtn = foundingForm.querySelector('.founding-submit-btn');
+      var originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
 
-      // Scroll to success message
-      if (foundingSuccess) {
-        foundingSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      try {
+        // ⬇️ Google Apps Script Web App URL
+        var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz2E2o_TMrCjHoErkdw2DUV_sgMzbFYXdv6SAcKD_8R2kCDTifkuNegbolx5V4vRAqJ4A/exec';
+
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        // Hide the form
+        foundingForm.style.display = 'none';
+
+        // Show success message
+        if (foundingSuccess) {
+          foundingSuccess.classList.add('show');
+          foundingSuccess.style.display = 'block';
+          foundingSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+      } catch (error) {
+        console.error('Submission error:', error);
+        alert('Something went wrong. Please try again or contact us directly.');
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
       }
     });
   }
