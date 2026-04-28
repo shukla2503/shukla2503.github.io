@@ -1184,7 +1184,7 @@ body.announcement-closed .hero {
 
 .vision-block p {
   color: var(--text);
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
 }
@@ -1428,7 +1428,7 @@ body.announcement-closed .hero {
 
 .insight-theme-text p {
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.75;
 }
 
