@@ -218,6 +218,54 @@
     });
   }
 
+  // --- Collaborations Focus Areas: click/tap description toggle ---
+  var focusChipContainer = document.getElementById('focusAreasInteractive');
+  if (focusChipContainer) {
+    var focusChips = focusChipContainer.querySelectorAll('.focus-chip');
+    var isDesktopHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    function closeAllFocusChips() {
+      focusChips.forEach(function (chip) {
+        chip.classList.remove('is-active');
+        chip.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    focusChips.forEach(function (chip) {
+      chip.addEventListener('mouseenter', function () {
+        closeAllFocusChips();
+      });
+
+      chip.addEventListener('click', function (e) {
+        // On desktop, hover handles reveal state and should not persist on click.
+        if (isDesktopHover) {
+          closeAllFocusChips();
+          return;
+        }
+
+        var isActive = chip.classList.contains('is-active');
+        closeAllFocusChips();
+        if (!isActive) {
+          chip.classList.add('is-active');
+          chip.setAttribute('aria-expanded', 'true');
+        }
+        e.stopPropagation();
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!focusChipContainer.contains(e.target)) {
+        closeAllFocusChips();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeAllFocusChips();
+      }
+    });
+  }
+
   // --- Floating Founding CTA visibility ---
   var floatingCta = document.getElementById('floatingFoundingCta');
   var foundingBanner = document.getElementById('foundingBanner');
