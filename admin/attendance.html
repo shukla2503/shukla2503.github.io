@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance – Embrace Learning Admin</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-wrapper">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <a href="dashboard.html" class="sidebar-brand">
+      <img src="../images/logo.png" alt="Embrace Learning">
+      <div class="sidebar-brand-name">Embrace <span>Learning</span></div>
+    </a>
+    <p class="sidebar-section-label">Main Menu</p>
+    <ul class="sidebar-nav">
+      <li><a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a></li>
+      <li><a href="students.html"><span class="nav-icon">👥</span> Students</a></li>
+      <li><a href="attendance.html" class="active"><span class="nav-icon">📅</span> Attendance</a></li>
+      <li><a href="payments.html"><span class="nav-icon">💳</span> Payments</a></li>
+      <li><a href="assessments.html"><span class="nav-icon">📝</span> Assessments</a></li>
+      <li><a href="certificates.html"><span class="nav-icon">🏆</span> Certificates</a></li>
+      <li><a href="reports.html"><span class="nav-icon">📈</span> Reports</a></li>
+    </ul>
+    <p class="sidebar-section-label">Account</p>
+    <ul class="sidebar-nav">
+      <li><a href="settings.html"><span class="nav-icon">⚙️</span> Settings</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="login.html">🚪 Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1>Attendance</h1>
+        <p>Track and manage daily attendance</p>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-primary btn-sm" id="saveAttBtn">💾 Save Attendance</button>
+        <div class="topbar-user">
+          <div class="topbar-avatar">A</div>
+          <div><div class="topbar-user-name">Admin</div><div class="topbar-user-role">Super Admin</div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <div class="stats-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:24px">
+        <div class="stat-card">
+          <div class="stat-icon green">✅</div>
+          <div><div class="stat-value">108</div><div class="stat-label">Present Today</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red">❌</div>
+          <div><div class="stat-value">12</div><div class="stat-label">Absent Today</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon yellow">⏳</div>
+          <div><div class="stat-value">8</div><div class="stat-label">Not Marked</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue">📊</div>
+          <div><div class="stat-value">91%</div><div class="stat-label">Overall Rate</div></div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Mark Attendance</h2>
+          <div style="display:flex;gap:10px;align-items:center">
+            <input type="date" id="attDate" class="btn btn-outline btn-sm" style="padding:6px 12px">
+            <select id="attProgram" class="btn btn-outline btn-sm" style="padding:6px 12px">
+              <option>All Programs</option>
+              <option>Academic Excellence</option>
+              <option>Leadership Program</option>
+              <option>Emotional Intelligence</option>
+              <option>360° Excellence</option>
+            </select>
+            <select id="attGrade" class="btn btn-outline btn-sm" style="padding:6px 12px">
+              <option>All Grades</option>
+              <option>Grade 6</option><option>Grade 7</option><option>Grade 8</option>
+              <option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
+            </select>
+          </div>
+        </div>
+        <div style="padding:12px 22px;border-bottom:1px solid #E2E8F0;display:flex;gap:10px">
+          <button type="button" class="btn btn-success btn-sm" onclick="markAll('present')">✅ Mark All Present</button>
+          <button type="button" class="btn btn-danger btn-sm" onclick="markAll('absent')">❌ Mark All Absent</button>
+        </div>
+        <div class="table-responsive">
+          <table id="attTable">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Grade</th>
+                <th>Program</th>
+                <th>Present</th>
+                <th>Absent</th>
+                <th>Late</th>
+                <th>Leave</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="student-name-cell"><div class="avatar">AR</div> Aryan Sharma</div></td>
+                <td>Grade 10</td><td>Academic Excellence</td>
+                <td><input type="radio" name="att_1" value="present" checked></td>
+                <td><input type="radio" name="att_1" value="absent"></td>
+                <td><input type="radio" name="att_1" value="late"></td>
+                <td><input type="radio" name="att_1" value="leave"></td>
+              </tr>
+              <tr>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#1E56A0">PM</div> Priya Mehta</div></td>
+                <td>Grade 8</td><td>Leadership Program</td>
+                <td><input type="radio" name="att_2" value="present" checked></td>
+                <td><input type="radio" name="att_2" value="absent"></td>
+                <td><input type="radio" name="att_2" value="late"></td>
+                <td><input type="radio" name="att_2" value="leave"></td>
+              </tr>
+              <tr>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#10B981">RK</div> Riya Kumar</div></td>
+                <td>Grade 11</td><td>360° Excellence</td>
+                <td><input type="radio" name="att_3" value="present"></td>
+                <td><input type="radio" name="att_3" value="absent" checked></td>
+                <td><input type="radio" name="att_3" value="late"></td>
+                <td><input type="radio" name="att_3" value="leave"></td>
+              </tr>
+              <tr>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#F59E0B">SG</div> Sahil Gupta</div></td>
+                <td>Grade 9</td><td>Emotional Intelligence</td>
+                <td><input type="radio" name="att_4" value="present" checked></td>
+                <td><input type="radio" name="att_4" value="absent"></td>
+                <td><input type="radio" name="att_4" value="late"></td>
+                <td><input type="radio" name="att_4" value="leave"></td>
+              </tr>
+              <tr>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#8B5CF6">AV</div> Anil Verma</div></td>
+                <td>Grade 7</td><td>Academic Excellence</td>
+                <td><input type="radio" name="att_5" value="present"></td>
+                <td><input type="radio" name="att_5" value="absent"></td>
+                <td><input type="radio" name="att_5" value="late" checked></td>
+                <td><input type="radio" name="att_5" value="leave"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Monthly Summary -->
+      <div class="card">
+        <div class="card-header"><h2 class="card-title">Monthly Summary — June 2026</h2></div>
+        <div class="table-responsive">
+          <table>
+            <thead><tr><th>Student</th><th>Present</th><th>Absent</th><th>Late</th><th>Leave</th><th>Rate</th></tr></thead>
+            <tbody>
+              <tr><td>Aryan Sharma</td><td>18</td><td>1</td><td>0</td><td>0</td><td><span class="badge badge-green">95%</span></td></tr>
+              <tr><td>Priya Mehta</td><td>17</td><td>2</td><td>1</td><td>0</td><td><span class="badge badge-green">89%</span></td></tr>
+              <tr><td>Riya Kumar</td><td>14</td><td>5</td><td>0</td><td>0</td><td><span class="badge badge-yellow">74%</span></td></tr>
+              <tr><td>Sahil Gupta</td><td>18</td><td>1</td><td>1</td><td>0</td><td><span class="badge badge-green">95%</span></td></tr>
+              <tr><td>Anil Verma</td><td>10</td><td>8</td><td>2</td><td>0</td><td><span class="badge badge-red">53%</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  // Set today's date
+  document.getElementById('attDate').valueAsDate = new Date();
+
+  function markAll(status) {
+    document.querySelectorAll('#attTable tbody tr').forEach(function (row, i) {
+      var radio = row.querySelector('input[value="' + status + '"]');
+      if (radio) radio.checked = true;
+    });
+  }
+
+  document.getElementById('saveAttBtn').addEventListener('click', function () {
+    alert('Attendance saved successfully!');
+  });
+</script>
+</body>
+</html>

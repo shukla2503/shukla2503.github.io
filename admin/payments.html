@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payments – Embrace Learning Admin</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-wrapper">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <a href="dashboard.html" class="sidebar-brand">
+      <img src="../images/logo.png" alt="Embrace Learning">
+      <div class="sidebar-brand-name">Embrace <span>Learning</span></div>
+    </a>
+    <p class="sidebar-section-label">Main Menu</p>
+    <ul class="sidebar-nav">
+      <li><a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a></li>
+      <li><a href="students.html"><span class="nav-icon">👥</span> Students</a></li>
+      <li><a href="attendance.html"><span class="nav-icon">📅</span> Attendance</a></li>
+      <li><a href="payments.html" class="active"><span class="nav-icon">💳</span> Payments</a></li>
+      <li><a href="assessments.html"><span class="nav-icon">📝</span> Assessments</a></li>
+      <li><a href="certificates.html"><span class="nav-icon">🏆</span> Certificates</a></li>
+      <li><a href="reports.html"><span class="nav-icon">📈</span> Reports</a></li>
+    </ul>
+    <p class="sidebar-section-label">Account</p>
+    <ul class="sidebar-nav">
+      <li><a href="settings.html"><span class="nav-icon">⚙️</span> Settings</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="login.html">🚪 Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1>Payments</h1>
+        <p>Track fees, invoices, and dues</p>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-primary btn-sm" id="addPaymentBtn">+ Record Payment</button>
+        <div class="topbar-user">
+          <div class="topbar-avatar">A</div>
+          <div><div class="topbar-user-name">Admin</div><div class="topbar-user-role">Super Admin</div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <div class="stats-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="stat-card">
+          <div class="stat-icon green">💰</div>
+          <div><div class="stat-value">₹2.4L</div><div class="stat-label">Collected This Month</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red">⚠️</div>
+          <div><div class="stat-value">₹28,500</div><div class="stat-label">Pending Dues</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue">🧾</div>
+          <div><div class="stat-value">54</div><div class="stat-label">Invoices This Month</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon yellow">🔔</div>
+          <div><div class="stat-value">7</div><div class="stat-label">Overdue Accounts</div></div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="all">All Payments</button>
+        <button class="tab-btn" data-tab="pending">Pending</button>
+        <button class="tab-btn" data-tab="overdue">Overdue</button>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Payment Records</h2>
+          <div style="display:flex;gap:10px">
+            <input type="month" class="btn btn-outline btn-sm" style="padding:6px 12px" value="2026-06">
+            <button class="btn btn-outline btn-sm">⬇ Export</button>
+          </div>
+        </div>
+        <div style="padding:16px 22px 0">
+          <div class="toolbar">
+            <div class="search-box">
+              <span>🔍</span>
+              <input type="text" placeholder="Search student or invoice…" id="paySearch">
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table id="paymentsTable">
+            <thead>
+              <tr>
+                <th>Invoice</th>
+                <th>Student</th>
+                <th>Program</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>INV-001</td>
+                <td><div class="student-name-cell"><div class="avatar">AR</div> Aryan Sharma</div></td>
+                <td>Academic Excellence</td>
+                <td>Monthly Fee – Jun</td>
+                <td>₹4,500</td>
+                <td>01 Jun 2026</td>
+                <td>05 Jun 2026</td>
+                <td><span class="badge badge-green">Paid</span></td>
+                <td><button class="btn-icon" title="View receipt">🧾</button></td>
+              </tr>
+              <tr>
+                <td>INV-002</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#1E56A0">PM</div> Priya Mehta</div></td>
+                <td>Leadership Program</td>
+                <td>Monthly Fee – Jun</td>
+                <td>₹3,500</td>
+                <td>01 Jun 2026</td>
+                <td>05 Jun 2026</td>
+                <td><span class="badge badge-green">Paid</span></td>
+                <td><button class="btn-icon" title="View receipt">🧾</button></td>
+              </tr>
+              <tr>
+                <td>INV-003</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#10B981">RK</div> Riya Kumar</div></td>
+                <td>360° Excellence</td>
+                <td>Monthly Fee – Jun</td>
+                <td>₹4,500</td>
+                <td>01 Jun 2026</td>
+                <td>05 Jun 2026</td>
+                <td><span class="badge badge-red">Overdue</span></td>
+                <td><button class="btn-icon" title="Send reminder">🔔</button></td>
+              </tr>
+              <tr>
+                <td>INV-004</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#F59E0B">SG</div> Sahil Gupta</div></td>
+                <td>Emotional Intelligence</td>
+                <td>Monthly Fee – Jun</td>
+                <td>₹3,200</td>
+                <td>01 Jun 2026</td>
+                <td>24 Jun 2026</td>
+                <td><span class="badge badge-yellow">Pending</span></td>
+                <td><button class="btn-icon" title="Record payment">✅</button></td>
+              </tr>
+              <tr>
+                <td>INV-005</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#8B5CF6">AV</div> Anil Verma</div></td>
+                <td>Academic Excellence</td>
+                <td>Monthly Fee – Jun</td>
+                <td>₹4,500</td>
+                <td>01 Jun 2026</td>
+                <td>05 Jun 2026</td>
+                <td><span class="badge badge-yellow">Pending</span></td>
+                <td><button class="btn-icon" title="Record payment">✅</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:16px 22px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #E2E8F0">
+          <p style="font-size:13px;color:#64748B">Showing 5 of 54 records</p>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-outline btn-sm">← Prev</button>
+            <button class="btn btn-primary btn-sm">Next →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+
+  document.getElementById('paySearch').addEventListener('input', function () {
+    var q = this.value.toLowerCase();
+    document.querySelectorAll('#paymentsTable tbody tr').forEach(function (row) {
+      row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+
+  document.getElementById('addPaymentBtn').addEventListener('click', function () {
+    var student = prompt('Enter student name:');
+    if (student) alert('Payment recorded for ' + student + '. (Connect to backend to persist.)');
+  });
+</script>
+</body>
+</html>

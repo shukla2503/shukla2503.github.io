@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – Embrace Learning Admin</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-wrapper">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <a href="dashboard.html" class="sidebar-brand">
+      <img src="../images/logo.png" alt="Embrace Learning">
+      <div class="sidebar-brand-name">Embrace <span>Learning</span></div>
+    </a>
+    <p class="sidebar-section-label">Main Menu</p>
+    <ul class="sidebar-nav">
+      <li><a href="dashboard.html" class="active"><span class="nav-icon">📊</span> Dashboard</a></li>
+      <li><a href="students.html"><span class="nav-icon">👥</span> Students</a></li>
+      <li><a href="attendance.html"><span class="nav-icon">📅</span> Attendance</a></li>
+      <li><a href="payments.html"><span class="nav-icon">💳</span> Payments</a></li>
+      <li><a href="assessments.html"><span class="nav-icon">📝</span> Assessments</a></li>
+      <li><a href="certificates.html"><span class="nav-icon">🏆</span> Certificates</a></li>
+      <li><a href="reports.html"><span class="nav-icon">📈</span> Reports</a></li>
+    </ul>
+    <p class="sidebar-section-label">Account</p>
+    <ul class="sidebar-nav">
+      <li><a href="settings.html"><span class="nav-icon">⚙️</span> Settings</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="login.html">🚪 Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1>Dashboard</h1>
+        <p>Welcome back! Here's what's happening today.</p>
+      </div>
+      <div class="topbar-right">
+        <a href="add-student.html" class="btn btn-primary btn-sm">+ Add Student</a>
+        <div class="topbar-user">
+          <div class="topbar-avatar">A</div>
+          <div>
+            <div class="topbar-user-name">Admin</div>
+            <div class="topbar-user-role">Super Admin</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="page-content">
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon blue">👥</div>
+          <div>
+            <div class="stat-value">128</div>
+            <div class="stat-label">Total Students</div>
+            <div class="stat-change up">▲ 12 this month</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">✅</div>
+          <div>
+            <div class="stat-value">91%</div>
+            <div class="stat-label">Avg. Attendance</div>
+            <div class="stat-change up">▲ 3% vs last month</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon yellow">💳</div>
+          <div>
+            <div class="stat-value">₹2.4L</div>
+            <div class="stat-label">Revenue This Month</div>
+            <div class="stat-change up">▲ ₹18k vs last month</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red">⚠️</div>
+          <div>
+            <div class="stat-value">7</div>
+            <div class="stat-label">Pending Payments</div>
+            <div class="stat-change down">▼ 2 overdue</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Students -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Recent Enrolments</h2>
+          <a href="students.html" class="btn btn-outline btn-sm">View All</a>
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Grade</th>
+                <th>Program</th>
+                <th>Enrolled On</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="student-name-cell"><div class="avatar">AR</div> Aryan Sharma</div></td>
+                <td>Grade 10</td>
+                <td>Academic Excellence</td>
+                <td>22 Jun 2026</td>
+                <td><span class="badge badge-green">Active</span></td>
+              </tr>
+              <tr>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#1E56A0">PM</div> Priya Mehta</div></td>
+                <td>Grade 8</td>
+                <td>Leadership Program</td>
+                <td>21 Jun 2026</td>
+                <td><span class="badge badge-green">Active</span></td>
+              </tr>
+              <tr>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#10B981">RK</div> Riya Kumar</div></td>
+                <td>Grade 11</td>
+                <td>360° Excellence</td>
+                <td>20 Jun 2026</td>
+                <td><span class="badge badge-yellow">Pending</span></td>
+              </tr>
+              <tr>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#F59E0B">SG</div> Sahil Gupta</div></td>
+                <td>Grade 9</td>
+                <td>Emotional Intelligence</td>
+                <td>19 Jun 2026</td>
+                <td><span class="badge badge-green">Active</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Upcoming & Pending Payments -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Today's Sessions</h2>
+          </div>
+          <div class="card-body" style="padding:0">
+            <table>
+              <thead><tr><th>Time</th><th>Program</th><th>Students</th></tr></thead>
+              <tbody>
+                <tr><td>9:00 AM</td><td>Mathematics (G10)</td><td>14</td></tr>
+                <tr><td>11:00 AM</td><td>Leadership Batch A</td><td>8</td></tr>
+                <tr><td>2:00 PM</td><td>EI Workshop</td><td>12</td></tr>
+                <tr><td>4:00 PM</td><td>Science (G9)</td><td>10</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Pending Payments</h2>
+            <a href="payments.html" class="btn btn-outline btn-sm">View All</a>
+          </div>
+          <div class="card-body" style="padding:0">
+            <table>
+              <thead><tr><th>Student</th><th>Amount</th><th>Due</th></tr></thead>
+              <tbody>
+                <tr><td>Riya Kumar</td><td>₹4,500</td><td><span class="badge badge-red">Overdue</span></td></tr>
+                <tr><td>Anil Verma</td><td>₹3,200</td><td><span class="badge badge-yellow">Today</span></td></tr>
+                <tr><td>Sneha Joshi</td><td>₹5,000</td><td><span class="badge badge-yellow">2 days</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports – Embrace Learning Admin</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-wrapper">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <a href="dashboard.html" class="sidebar-brand">
+      <img src="../images/logo.png" alt="Embrace Learning">
+      <div class="sidebar-brand-name">Embrace <span>Learning</span></div>
+    </a>
+    <p class="sidebar-section-label">Main Menu</p>
+    <ul class="sidebar-nav">
+      <li><a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a></li>
+      <li><a href="students.html"><span class="nav-icon">👥</span> Students</a></li>
+      <li><a href="attendance.html"><span class="nav-icon">📅</span> Attendance</a></li>
+      <li><a href="payments.html"><span class="nav-icon">💳</span> Payments</a></li>
+      <li><a href="assessments.html"><span class="nav-icon">📝</span> Assessments</a></li>
+      <li><a href="certificates.html"><span class="nav-icon">🏆</span> Certificates</a></li>
+      <li><a href="reports.html" class="active"><span class="nav-icon">📈</span> Reports</a></li>
+    </ul>
+    <p class="sidebar-section-label">Account</p>
+    <ul class="sidebar-nav">
+      <li><a href="settings.html"><span class="nav-icon">⚙️</span> Settings</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="login.html">🚪 Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1>Reports</h1>
+        <p>Overview of enrolments, attendance, payments, and performance</p>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-primary btn-sm" onclick="window.print()">🖨 Print Report</button>
+        <div class="topbar-user">
+          <div class="topbar-avatar">A</div>
+          <div><div class="topbar-user-name">Admin</div><div class="topbar-user-role">Super Admin</div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <!-- Date filter -->
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;background:#fff;padding:14px 20px;border-radius:var(--radius);box-shadow:var(--shadow)">
+        <span style="font-weight:600;font-size:13px;color:var(--text-muted)">Date Range:</span>
+        <input type="date" class="btn btn-outline btn-sm" style="padding:6px 12px" value="2026-06-01">
+        <span style="color:var(--text-muted)">to</span>
+        <input type="date" class="btn btn-outline btn-sm" style="padding:6px 12px" value="2026-06-24">
+        <button class="btn btn-primary btn-sm">Apply</button>
+      </div>
+
+      <!-- KPI cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon blue">👥</div>
+          <div><div class="stat-value">128</div><div class="stat-label">Total Students</div><div class="stat-change up">▲ 12 this month</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">✅</div>
+          <div><div class="stat-value">91%</div><div class="stat-label">Avg. Attendance</div><div class="stat-change up">▲ 3%</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon yellow">💰</div>
+          <div><div class="stat-value">₹2.4L</div><div class="stat-label">Revenue</div><div class="stat-change up">▲ ₹18k</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue">📝</div>
+          <div><div class="stat-value">78%</div><div class="stat-label">Avg. Assessment Score</div><div class="stat-change up">▲ 4%</div></div>
+        </div>
+      </div>
+
+      <!-- Enrolment by Program -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+        <div class="card">
+          <div class="card-header"><h2 class="card-title">Enrolment by Program</h2></div>
+          <div class="card-body">
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px"><span>Academic Excellence</span><strong>48 students</strong></div>
+                <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:75%"></div></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px"><span>Leadership Program</span><strong>32 students</strong></div>
+                <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:50%"></div></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px"><span>360° Excellence</span><strong>28 students</strong></div>
+                <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:44%"></div></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px"><span>Emotional Intelligence</span><strong>20 students</strong></div>
+                <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:31%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h2 class="card-title">Enrolment by Grade</h2></div>
+          <div class="card-body">
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px"><span>Grade 9–10</span><strong>42 students</strong></div>
+                <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:66%"></div></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px"><span>Grade 11–12</span><strong>36 students</strong></div>
+                <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:56%"></div></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px"><span>Grade 7–8</span><strong>28 students</strong></div>
+                <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:44%"></div></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:13px"><span>Grade 6</span><strong>22 students</strong></div>
+                <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:34%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attendance & Payment Summary -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div class="card">
+          <div class="card-header"><h2 class="card-title">Attendance Summary — Jun 2026</h2></div>
+          <div class="table-responsive">
+            <table>
+              <thead><tr><th>Program</th><th>Present</th><th>Absent</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Academic Excellence</td><td>440</td><td>40</td><td><span class="badge badge-green">92%</span></td></tr>
+                <tr><td>Leadership Program</td><td>288</td><td>32</td><td><span class="badge badge-green">90%</span></td></tr>
+                <tr><td>360° Excellence</td><td>235</td><td>45</td><td><span class="badge badge-yellow">84%</span></td></tr>
+                <tr><td>Emotional Intelligence</td><td>172</td><td>18</td><td><span class="badge badge-green">91%</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h2 class="card-title">Payment Summary — Jun 2026</h2></div>
+          <div class="table-responsive">
+            <table>
+              <thead><tr><th>Program</th><th>Collected</th><th>Pending</th><th>Rate</th></tr></thead>
+              <tbody>
+                <tr><td>Academic Excellence</td><td>₹2,16,000</td><td>₹9,000</td><td><span class="badge badge-green">96%</span></td></tr>
+                <tr><td>Leadership Program</td><td>₹1,12,000</td><td>₹7,000</td><td><span class="badge badge-green">94%</span></td></tr>
+                <tr><td>360° Excellence</td><td>₹84,000</td><td>₹9,000</td><td><span class="badge badge-yellow">90%</span></td></tr>
+                <tr><td>Emotional Intelligence</td><td>₹60,000</td><td>₹3,500</td><td><span class="badge badge-green">94%</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

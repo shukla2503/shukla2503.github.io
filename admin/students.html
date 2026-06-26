@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students – Embrace Learning Admin</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-wrapper">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <a href="dashboard.html" class="sidebar-brand">
+      <img src="../images/logo.png" alt="Embrace Learning">
+      <div class="sidebar-brand-name">Embrace <span>Learning</span></div>
+    </a>
+    <p class="sidebar-section-label">Main Menu</p>
+    <ul class="sidebar-nav">
+      <li><a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a></li>
+      <li><a href="students.html" class="active"><span class="nav-icon">👥</span> Students</a></li>
+      <li><a href="attendance.html"><span class="nav-icon">📅</span> Attendance</a></li>
+      <li><a href="payments.html"><span class="nav-icon">💳</span> Payments</a></li>
+      <li><a href="assessments.html"><span class="nav-icon">📝</span> Assessments</a></li>
+      <li><a href="certificates.html"><span class="nav-icon">🏆</span> Certificates</a></li>
+      <li><a href="reports.html"><span class="nav-icon">📈</span> Reports</a></li>
+    </ul>
+    <p class="sidebar-section-label">Account</p>
+    <ul class="sidebar-nav">
+      <li><a href="settings.html"><span class="nav-icon">⚙️</span> Settings</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="login.html">🚪 Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1>Students</h1>
+        <p>Manage all enrolled students</p>
+      </div>
+      <div class="topbar-right">
+        <a href="add-student.html" class="btn btn-primary btn-sm">+ Add Student</a>
+        <div class="topbar-user">
+          <div class="topbar-avatar">A</div>
+          <div>
+            <div class="topbar-user-name">Admin</div>
+            <div class="topbar-user-role">Super Admin</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <div class="stats-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="stat-card">
+          <div class="stat-icon blue">👥</div>
+          <div><div class="stat-value">128</div><div class="stat-label">Total Students</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">✅</div>
+          <div><div class="stat-value">112</div><div class="stat-label">Active</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon yellow">⏳</div>
+          <div><div class="stat-value">10</div><div class="stat-label">Pending</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red">🚫</div>
+          <div><div class="stat-value">6</div><div class="stat-label">Inactive</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">All Students</h2>
+          <div style="display:flex;gap:10px">
+            <select class="btn btn-outline btn-sm" style="padding:6px 12px">
+              <option>All Programs</option>
+              <option>Academic Excellence</option>
+              <option>Leadership Program</option>
+              <option>Emotional Intelligence</option>
+              <option>360° Excellence</option>
+            </select>
+            <select class="btn btn-outline btn-sm" style="padding:6px 12px">
+              <option>All Grades</option>
+              <option>Grade 6</option><option>Grade 7</option><option>Grade 8</option>
+              <option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="padding:16px 22px 0">
+          <div class="toolbar">
+            <div class="search-box">
+              <span>🔍</span>
+              <input type="text" placeholder="Search by name, email or phone…" id="studentSearch">
+            </div>
+            <button class="btn btn-outline btn-sm">⬇ Export</button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table id="studentsTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Student</th>
+                <th>Grade</th>
+                <th>Program</th>
+                <th>Phone</th>
+                <th>Enrolled</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td><div class="student-name-cell"><div class="avatar">AR</div><div><div style="font-weight:600">Aryan Sharma</div><div style="font-size:12px;color:#64748B">aryan@email.com</div></div></div></td>
+                <td>Grade 10</td>
+                <td>Academic Excellence</td>
+                <td>+91 98765 43210</td>
+                <td>22 Jun 2026</td>
+                <td><span class="badge badge-green">Active</span></td>
+                <td style="display:flex;gap:6px">
+                  <a href="student-profile.html" class="btn-icon" title="View">👁</a>
+                  <a href="add-student.html" class="btn-icon" title="Edit">✏️</a>
+                  <button class="btn-icon" title="Delete" style="color:#EF4444">🗑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>002</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#1E56A0">PM</div><div><div style="font-weight:600">Priya Mehta</div><div style="font-size:12px;color:#64748B">priya@email.com</div></div></div></td>
+                <td>Grade 8</td>
+                <td>Leadership Program</td>
+                <td>+91 91234 56789</td>
+                <td>21 Jun 2026</td>
+                <td><span class="badge badge-green">Active</span></td>
+                <td style="display:flex;gap:6px">
+                  <a href="student-profile.html" class="btn-icon" title="View">👁</a>
+                  <a href="add-student.html" class="btn-icon" title="Edit">✏️</a>
+                  <button class="btn-icon" title="Delete" style="color:#EF4444">🗑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>003</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#10B981">RK</div><div><div style="font-weight:600">Riya Kumar</div><div style="font-size:12px;color:#64748B">riya@email.com</div></div></div></td>
+                <td>Grade 11</td>
+                <td>360° Excellence</td>
+                <td>+91 99887 65432</td>
+                <td>20 Jun 2026</td>
+                <td><span class="badge badge-yellow">Pending</span></td>
+                <td style="display:flex;gap:6px">
+                  <a href="student-profile.html" class="btn-icon" title="View">👁</a>
+                  <a href="add-student.html" class="btn-icon" title="Edit">✏️</a>
+                  <button class="btn-icon" title="Delete" style="color:#EF4444">🗑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>004</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#F59E0B">SG</div><div><div style="font-weight:600">Sahil Gupta</div><div style="font-size:12px;color:#64748B">sahil@email.com</div></div></div></td>
+                <td>Grade 9</td>
+                <td>Emotional Intelligence</td>
+                <td>+91 88776 55443</td>
+                <td>19 Jun 2026</td>
+                <td><span class="badge badge-green">Active</span></td>
+                <td style="display:flex;gap:6px">
+                  <a href="student-profile.html" class="btn-icon" title="View">👁</a>
+                  <a href="add-student.html" class="btn-icon" title="Edit">✏️</a>
+                  <button class="btn-icon" title="Delete" style="color:#EF4444">🗑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>005</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#8B5CF6">AV</div><div><div style="font-weight:600">Anil Verma</div><div style="font-size:12px;color:#64748B">anil@email.com</div></div></div></td>
+                <td>Grade 7</td>
+                <td>Academic Excellence</td>
+                <td>+91 77665 44332</td>
+                <td>18 Jun 2026</td>
+                <td><span class="badge badge-red">Inactive</span></td>
+                <td style="display:flex;gap:6px">
+                  <a href="student-profile.html" class="btn-icon" title="View">👁</a>
+                  <a href="add-student.html" class="btn-icon" title="Edit">✏️</a>
+                  <button class="btn-icon" title="Delete" style="color:#EF4444">🗑</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="padding:16px 22px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #E2E8F0">
+          <p style="font-size:13px;color:#64748B">Showing 5 of 128 students</p>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-outline btn-sm">← Prev</button>
+            <button class="btn btn-primary btn-sm">Next →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('studentSearch').addEventListener('input', function () {
+    var q = this.value.toLowerCase();
+    document.querySelectorAll('#studentsTable tbody tr').forEach(function (row) {
+      row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Student – Embrace Learning Admin</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-wrapper">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <a href="dashboard.html" class="sidebar-brand">
+      <img src="../images/logo.png" alt="Embrace Learning">
+      <div class="sidebar-brand-name">Embrace <span>Learning</span></div>
+    </a>
+    <p class="sidebar-section-label">Main Menu</p>
+    <ul class="sidebar-nav">
+      <li><a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a></li>
+      <li><a href="students.html" class="active"><span class="nav-icon">👥</span> Students</a></li>
+      <li><a href="attendance.html"><span class="nav-icon">📅</span> Attendance</a></li>
+      <li><a href="payments.html"><span class="nav-icon">💳</span> Payments</a></li>
+      <li><a href="assessments.html"><span class="nav-icon">📝</span> Assessments</a></li>
+      <li><a href="certificates.html"><span class="nav-icon">🏆</span> Certificates</a></li>
+      <li><a href="reports.html"><span class="nav-icon">📈</span> Reports</a></li>
+    </ul>
+    <p class="sidebar-section-label">Account</p>
+    <ul class="sidebar-nav">
+      <li><a href="settings.html"><span class="nav-icon">⚙️</span> Settings</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="login.html">🚪 Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1>Add Student</h1>
+        <p><a href="students.html" style="color:#1E56A0;text-decoration:none">Students</a> / New Student</p>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-user">
+          <div class="topbar-avatar">A</div>
+          <div><div class="topbar-user-name">Admin</div><div class="topbar-user-role">Super Admin</div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-content">
+      <form id="addStudentForm" novalidate>
+
+        <!-- Personal Info -->
+        <div class="card">
+          <div class="card-header"><h2 class="card-title">Personal Information</h2></div>
+          <div class="card-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="firstName">First Name <span class="required">*</span></label>
+                <input type="text" id="firstName" placeholder="First name" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name <span class="required">*</span></label>
+                <input type="text" id="lastName" placeholder="Last name" required>
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth <span class="required">*</span></label>
+                <input type="date" id="dob" required>
+              </div>
+              <div class="form-group">
+                <label for="gender">Gender <span class="required">*</span></label>
+                <select id="gender" required>
+                  <option value="" disabled selected>Select gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="studentEmail">Email</label>
+                <input type="email" id="studentEmail" placeholder="Student email">
+              </div>
+              <div class="form-group">
+                <label for="studentPhone">Phone</label>
+                <input type="tel" id="studentPhone" placeholder="Student phone number">
+              </div>
+              <div class="form-group form-full">
+                <label for="area">Area / Locality <span class="required">*</span></label>
+                <input type="text" id="area" placeholder="e.g. Vasant Kunj, New Delhi" required>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Info -->
+        <div class="card">
+          <div class="card-header"><h2 class="card-title">Academic Information</h2></div>
+          <div class="card-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="grade">Grade <span class="required">*</span></label>
+                <select id="grade" required>
+                  <option value="" disabled selected>Select grade</option>
+                  <option>Grade 6</option><option>Grade 7</option><option>Grade 8</option>
+                  <option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="school">School Name</label>
+                <input type="text" id="school" placeholder="Name of school">
+              </div>
+              <div class="form-group">
+                <label for="program">Program <span class="required">*</span></label>
+                <select id="program" required>
+                  <option value="" disabled selected>Select program</option>
+                  <option>Academic Excellence</option>
+                  <option>Leadership Program</option>
+                  <option>Emotional Intelligence</option>
+                  <option>360° Excellence Program</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="enrollDate">Enrolment Date <span class="required">*</span></label>
+                <input type="date" id="enrollDate" required>
+              </div>
+              <div class="form-group">
+                <label for="subjects">Subjects (comma-separated)</label>
+                <input type="text" id="subjects" placeholder="e.g. Maths, Science, English">
+              </div>
+              <div class="form-group">
+                <label for="status">Status <span class="required">*</span></label>
+                <select id="status" required>
+                  <option value="Active">Active</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parent Info -->
+        <div class="card">
+          <div class="card-header"><h2 class="card-title">Parent / Guardian Details</h2></div>
+          <div class="card-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="parentName">Parent Name <span class="required">*</span></label>
+                <input type="text" id="parentName" placeholder="Parent full name" required>
+              </div>
+              <div class="form-group">
+                <label for="parentPhone">Parent Phone <span class="required">*</span></label>
+                <input type="tel" id="parentPhone" placeholder="Parent phone number" required>
+              </div>
+              <div class="form-group">
+                <label for="parentEmail">Parent Email</label>
+                <input type="email" id="parentEmail" placeholder="Parent email">
+              </div>
+              <div class="form-group">
+                <label for="relation">Relation</label>
+                <select id="relation">
+                  <option>Father</option>
+                  <option>Mother</option>
+                  <option>Guardian</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="card">
+          <div class="card-header"><h2 class="card-title">Additional Notes</h2></div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="notes">Notes</label>
+              <textarea id="notes" rows="4" placeholder="Any special notes or requirements…"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div style="display:flex;gap:12px;justify-content:flex-end;margin-bottom:32px">
+          <a href="students.html" class="btn btn-outline">Cancel</a>
+          <button type="submit" class="btn btn-primary">Save Student</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('addStudentForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    // TODO: wire to backend
+    alert('Student saved successfully!');
+    window.location.href = 'students.html';
+  });
+</script>
+</body>
+</html>

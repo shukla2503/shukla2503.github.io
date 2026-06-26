@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificates – Embrace Learning Admin</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="admin-wrapper">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <a href="dashboard.html" class="sidebar-brand">
+      <img src="../images/logo.png" alt="Embrace Learning">
+      <div class="sidebar-brand-name">Embrace <span>Learning</span></div>
+    </a>
+    <p class="sidebar-section-label">Main Menu</p>
+    <ul class="sidebar-nav">
+      <li><a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a></li>
+      <li><a href="students.html"><span class="nav-icon">👥</span> Students</a></li>
+      <li><a href="attendance.html"><span class="nav-icon">📅</span> Attendance</a></li>
+      <li><a href="payments.html"><span class="nav-icon">💳</span> Payments</a></li>
+      <li><a href="assessments.html"><span class="nav-icon">📝</span> Assessments</a></li>
+      <li><a href="certificates.html" class="active"><span class="nav-icon">🏆</span> Certificates</a></li>
+      <li><a href="reports.html"><span class="nav-icon">📈</span> Reports</a></li>
+    </ul>
+    <p class="sidebar-section-label">Account</p>
+    <ul class="sidebar-nav">
+      <li><a href="settings.html"><span class="nav-icon">⚙️</span> Settings</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="login.html">🚪 Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1>Certificates</h1>
+        <p>Issue and manage completion certificates</p>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-primary btn-sm" id="issueCertBtn">+ Issue Certificate</button>
+        <div class="topbar-user">
+          <div class="topbar-avatar">A</div>
+          <div><div class="topbar-user-name">Admin</div><div class="topbar-user-role">Super Admin</div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <div class="stats-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="stat-card">
+          <div class="stat-icon blue">🏆</div>
+          <div><div class="stat-value">42</div><div class="stat-label">Issued This Year</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">✅</div>
+          <div><div class="stat-value">38</div><div class="stat-label">Delivered</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon yellow">⏳</div>
+          <div><div class="stat-value">4</div><div class="stat-label">Pending Delivery</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red">📋</div>
+          <div><div class="stat-value">15</div><div class="stat-label">Eligible Students</div></div>
+        </div>
+      </div>
+
+      <!-- Issue Certificate Form -->
+      <div class="card" id="issueCertForm" style="display:none">
+        <div class="card-header">
+          <h2 class="card-title">Issue New Certificate</h2>
+          <button class="btn btn-outline btn-sm" id="closeCertForm">✕ Close</button>
+        </div>
+        <div class="card-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Student <span class="required">*</span></label>
+              <select>
+                <option value="" disabled selected>Select student</option>
+                <option>Aryan Sharma</option>
+                <option>Priya Mehta</option>
+                <option>Riya Kumar</option>
+                <option>Sahil Gupta</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Certificate Type <span class="required">*</span></label>
+              <select>
+                <option>Program Completion</option>
+                <option>Excellence Award</option>
+                <option>Participation</option>
+                <option>Leadership</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Program <span class="required">*</span></label>
+              <select>
+                <option>Academic Excellence</option>
+                <option>Leadership Program</option>
+                <option>Emotional Intelligence</option>
+                <option>360° Excellence</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Issue Date <span class="required">*</span></label>
+              <input type="date">
+            </div>
+            <div class="form-group form-full">
+              <label>Remarks</label>
+              <input type="text" placeholder="Optional remarks on the certificate">
+            </div>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:10px">
+            <button type="button" class="btn btn-primary" onclick="alert('Certificate issued!')">Issue Certificate</button>
+            <button type="button" class="btn btn-outline" id="cancelCert">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificates List -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">All Certificates</h2>
+          <div style="display:flex;gap:10px">
+            <select class="btn btn-outline btn-sm" style="padding:6px 12px">
+              <option>All Types</option>
+              <option>Program Completion</option>
+              <option>Excellence Award</option>
+              <option>Participation</option>
+            </select>
+            <button class="btn btn-outline btn-sm">⬇ Export</button>
+          </div>
+        </div>
+        <div style="padding:16px 22px 0">
+          <div class="toolbar">
+            <div class="search-box">
+              <span>🔍</span>
+              <input type="text" placeholder="Search by student or certificate ID…" id="certSearch">
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table id="certsTable">
+            <thead>
+              <tr>
+                <th>Cert. ID</th>
+                <th>Student</th>
+                <th>Program</th>
+                <th>Type</th>
+                <th>Issue Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CERT-001</td>
+                <td><div class="student-name-cell"><div class="avatar">AS</div> Aryan Sharma</div></td>
+                <td>Academic Excellence</td>
+                <td><span class="badge badge-blue">Completion</span></td>
+                <td>20 Jun 2026</td>
+                <td><span class="badge badge-green">Delivered</span></td>
+                <td style="display:flex;gap:6px">
+                  <button class="btn-icon" title="Download">⬇</button>
+                  <button class="btn-icon" title="Print">🖨</button>
+                </td>
+              </tr>
+              <tr>
+                <td>CERT-002</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#1E56A0">PM</div> Priya Mehta</div></td>
+                <td>Leadership Program</td>
+                <td><span class="badge badge-yellow">Excellence</span></td>
+                <td>20 Jun 2026</td>
+                <td><span class="badge badge-green">Delivered</span></td>
+                <td style="display:flex;gap:6px">
+                  <button class="btn-icon" title="Download">⬇</button>
+                  <button class="btn-icon" title="Print">🖨</button>
+                </td>
+              </tr>
+              <tr>
+                <td>CERT-003</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#F59E0B">SG</div> Sahil Gupta</div></td>
+                <td>Emotional Intelligence</td>
+                <td><span class="badge badge-blue">Completion</span></td>
+                <td>22 Jun 2026</td>
+                <td><span class="badge badge-yellow">Pending</span></td>
+                <td style="display:flex;gap:6px">
+                  <button class="btn-icon" title="Download">⬇</button>
+                  <button class="btn-icon" title="Print">🖨</button>
+                </td>
+              </tr>
+              <tr>
+                <td>CERT-004</td>
+                <td><div class="student-name-cell"><div class="avatar" style="background:#8B5CF6">NJ</div> Neha Jain</div></td>
+                <td>360° Excellence</td>
+                <td><span class="badge badge-green">Participation</span></td>
+                <td>23 Jun 2026</td>
+                <td><span class="badge badge-yellow">Pending</span></td>
+                <td style="display:flex;gap:6px">
+                  <button class="btn-icon" title="Download">⬇</button>
+                  <button class="btn-icon" title="Print">🖨</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('issueCertBtn').addEventListener('click', function () {
+    document.getElementById('issueCertForm').style.display = '';
+  });
+  ['closeCertForm','cancelCert'].forEach(function (id) {
+    document.getElementById(id).addEventListener('click', function () {
+      document.getElementById('issueCertForm').style.display = 'none';
+    });
+  });
+  document.getElementById('certSearch').addEventListener('input', function () {
+    var q = this.value.toLowerCase();
+    document.querySelectorAll('#certsTable tbody tr').forEach(function (row) {
+      row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

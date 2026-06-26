@@ -187,34 +187,105 @@
     }, { passive: true });
   }
 
+  // --- WhatsApp Link Handler ---
+  document.addEventListener('click', function (e) {
+    var chatLink = e.target.closest('.whatsapp-chat-link');
+    if (!chatLink) return;
+
+    e.preventDefault();
+
+    var phoneNumber = chatLink.getAttribute('data-whatsapp-number') || '';
+    var messageText = chatLink.getAttribute('data-whatsapp-message') || '';
+
+    if (!phoneNumber) return;
+
+    var whatsappUrl = 'https://wa.me/' + encodeURIComponent(phoneNumber);
+    if (messageText) {
+      whatsappUrl += '?text=' + encodeURIComponent(messageText);
+    }
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  });
+
   // --- Contact Form Handler ---
   var contactForm = document.getElementById('contactForm');
   var formSuccess = document.getElementById('formSuccess');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('input', function () {
+      if (formSuccess) {
+        formSuccess.classList.remove('show');
+      }
+    });
+
+    contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      // Basic validation
-      var name = document.getElementById('name');
-      var phone = document.getElementById('phone');
+      var contactName = document.getElementById('contactName');
+      var contactEmail = document.getElementById('contactEmail');
+      var contactGrade = document.getElementById('contactGrade');
+      var contactMessage = document.getElementById('contactMessage');
 
-      if (!name.value.trim() || !phone.value.trim()) {
+      if (!contactName || !contactEmail || !contactMessage) {
         return;
       }
 
-      // Show success message (replace with actual form submission in production)
-      if (formSuccess) {
-        formSuccess.classList.add('show');
+      var nameValue = contactName.value.trim();
+      var emailValue = contactEmail.value.trim();
+      var gradeValue = contactGrade ? contactGrade.value.trim() : '';
+      var messageValue = contactMessage.value.trim();
+
+      if (!nameValue || !emailValue || !messageValue) {
+        return;
       }
 
-      // Reset form
-      contactForm.reset();
+      var submitBtn = contactForm.querySelector('.contact-submit-btn');
+      var originalText = submitBtn ? submitBtn.textContent : '';
 
-      // Hide success after 5s
-      setTimeout(function () {
-        if (formSuccess) formSuccess.classList.remove('show');
-      }, 5000);
+      if (submitBtn) {
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+      }
+
+      var contactPayload = {
+        source: 'contact_form',
+        channel: 'whatsapp',
+        destinationEmail: 'elearninghub27@gmail.com',
+        destinationWhatsApp: '919717194193',
+        name: nameValue,
+        email: emailValue,
+        grade: gradeValue || 'Not provided',
+        message: messageValue,
+        submittedAt: new Date().toISOString()
+      };
+
+      try {
+        // Backend endpoint should relay this message to your WhatsApp automation.
+        var CONTACT_FORM_BACKEND_URL = 'https://script.google.com/macros/s/AKfycbz2E2o_TMrCjHoErkdw2DUV_sgMzbFYXdv6SAcKD_8R2kCDTifkuNegbolx5V4vRAqJ4A/exec';
+
+        await fetch(CONTACT_FORM_BACKEND_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(contactPayload)
+        });
+
+        if (formSuccess) {
+          formSuccess.classList.add('show');
+        }
+
+        contactForm.reset();
+      } catch (error) {
+        console.error('Contact form submission error:', error);
+        alert('Something went wrong. Please try again or contact us directly.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }
+      }
     });
   }
 
