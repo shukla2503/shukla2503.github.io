@@ -1773,9 +1773,9 @@ body.announcement-closed .hero {
 /* Duo Cards (WhatsApp + Email) */
 .contact-duo {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
-  max-width: 800px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
@@ -1825,6 +1825,18 @@ body.announcement-closed .hero {
   font-weight: 600;
   color: var(--primary) !important;
   font-size: 0.95rem !important;
+}
+
+.contact-phone-number {
+  font-weight: 600;
+  color: var(--primary) !important;
+  font-size: 0.95rem !important;
+}
+
+.contact-hours {
+  font-size: 0.9rem !important;
+  color: var(--gray) !important;
+  margin-top: auto;
 }
 
 /* Enquiry Form */
