@@ -250,6 +250,7 @@
 
       var contactPayload = {
         source: 'contact_form',
+        formType: 'contact',
         channel: 'whatsapp',
         destinationEmail: 'elearninghub27@gmail.com',
         destinationWhatsApp: '919717194193',
@@ -257,7 +258,17 @@
         email: emailValue,
         grade: gradeValue || 'Not provided',
         message: messageValue,
-        submittedAt: new Date().toISOString()
+        submittedAt: new Date().toISOString(),
+
+        // Founding-compatible aliases for shared Apps Script handlers.
+        parentName: nameValue,
+        childGrade: gradeValue || 'Not provided',
+        parentPhone: 'Not provided',
+        parentEmail: emailValue,
+        parentArea: messageValue,
+        interests: 'Contact Enquiry',
+        subjects: '',
+        attendSession: 'N/A'
       };
 
       try {
