@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -65,8 +65,7 @@
           <span class="contact-option-icon">💬</span>
           <h3>Chat With Us on WhatsApp</h3>
           <p>Have a quick question? Send us a message and we'll get back to you.</p>
-          <!-- TODO: Replace # with https://wa.me/91YOURNUMBER?text=Hello%20I%20would%20like%20to%20know%20more%20about%20your%20programs -->
-          <a href="#" target="_blank" class="btn btn-primary">Start WhatsApp Chat</a>
+          <a href="#" class="btn btn-primary whatsapp-chat-link" data-whatsapp-number="919717194193" data-whatsapp-message="Hello I would like to know more about your programs">Start WhatsApp Chat</a>
         </div>
         <!-- Email Card -->
         <div class="contact-option-card">
@@ -75,6 +74,14 @@
           <p>For detailed enquiries, feel free to write to us.</p>
           <p class="contact-email-address">Elearninghub27@gmail.com</p>
           <a href="mailto:Elearninghub27@gmail.com" class="btn btn-outline-primary">Send Email</a>
+        </div>
+        <!-- Call Card -->
+        <div class="contact-option-card">
+          <span class="contact-option-icon">📞</span>
+          <h3>Call Us</h3>
+          <p>Prefer to talk directly? Give us a call.</p>
+          <p class="contact-phone-number">+91- 9717194193</p>
+          <p class="contact-hours">Hours: 9 AM to 6 PM (Mon-Sun)</p>
         </div>
       </div>
     </div>
@@ -107,9 +114,12 @@
             <label for="contactMessage">Message <span class="required">*</span></label>
             <textarea id="contactMessage" name="message" rows="5" placeholder="How can we help you?" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send Enquiry</button>
+          <button type="submit" class="btn btn-primary contact-submit-btn">Send Enquiry</button>
           <p class="form-privacy">We usually respond within 24 hours.</p>
         </form>
+        <div id="formSuccess" class="form-success">
+          Thank you for contacting us. We'll get back to you soon.
+        </div>
       </div>
     </div>
   </section>
@@ -135,8 +145,7 @@
     <div class="container">
       <h2>Let's Start the Conversation</h2>
       <p>Whether you're exploring programs or simply curious about our approach, we're happy to connect.</p>
-      <!-- TODO: Replace # with https://wa.me/91YOURNUMBER?text=... -->
-      <a href="#" target="_blank" class="btn btn-primary">Chat on WhatsApp</a>
+      <a href="#" class="btn btn-primary whatsapp-chat-link" data-whatsapp-number="919717194193" data-whatsapp-message="Hello I would like to know more about your programs">Chat on WhatsApp</a>
     </div>
   </section>
 
