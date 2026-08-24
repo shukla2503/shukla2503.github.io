@@ -1238,8 +1238,8 @@ body.announcement-closed .hero {
 }
 
 #recent-collaborations .collab-carousel-image--contain {
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  max-width: 760px;
   height: 360px;
   object-fit: contain;
   object-position: center;
