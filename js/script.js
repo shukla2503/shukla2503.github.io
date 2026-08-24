@@ -110,82 +110,116 @@
     });
   });
 
-  // --- Testimonial Slider ---
-  var track = document.getElementById('testimonialTrack');
-  var dotsContainer = document.getElementById('testimonialDots');
+  // --- Collaboration Sliders ---
+function initCollaborationSlider(trackId, dotsId, ariaLabel) {
+  var track = document.getElementById(trackId);
+  var dotsContainer = document.getElementById(dotsId);
 
-  if (track && dotsContainer) {
-    var slides = track.querySelectorAll('.testimonial-card');
-    var currentSlide = 0;
-    var totalSlides = slides.length;
-    var autoSlideInterval;
+  if (!track || !dotsContainer) return;
 
-    // Create dots
-    for (var i = 0; i < totalSlides; i++) {
-      var dot = document.createElement('button');
-      dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
-      dot.dataset.index = i;
-      dotsContainer.appendChild(dot);
-    }
+  var slides = track.querySelectorAll('.testimonial-card');
+  var currentSlide = 0;
+  var totalSlides = slides.length;
+  var autoSlideInterval;
 
-    var dots = dotsContainer.querySelectorAll('.testimonial-dot');
+  if (totalSlides === 0) return;
 
-    function goToSlide(index) {
-      currentSlide = index;
-      track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-      dots.forEach(function (d, idx) {
-        d.classList.toggle('active', idx === currentSlide);
-      });
-    }
-
-    function nextSlide() {
-      goToSlide((currentSlide + 1) % totalSlides);
-    }
-
-    // Dot click
-    dotsContainer.addEventListener('click', function (e) {
-      if (e.target.classList.contains('testimonial-dot')) {
-        clearInterval(autoSlideInterval);
-        goToSlide(parseInt(e.target.dataset.index));
-        startAutoSlide();
-      }
-    });
-
-    // Auto-slide
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(nextSlide, 5000);
-    }
-    startAutoSlide();
-
-    // Pause on hover
-    track.addEventListener('mouseenter', function () {
-      clearInterval(autoSlideInterval);
-    });
-    track.addEventListener('mouseleave', startAutoSlide);
-
-    // Touch support for slider
-    var touchStartX = 0;
-    var touchEndX = 0;
-
-    track.addEventListener('touchstart', function (e) {
-      touchStartX = e.changedTouches[0].screenX;
-      clearInterval(autoSlideInterval);
-    }, { passive: true });
-
-    track.addEventListener('touchend', function (e) {
-      touchEndX = e.changedTouches[0].screenX;
-      var diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) {
-          goToSlide((currentSlide + 1) % totalSlides);
-        } else {
-          goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
-        }
-      }
-      startAutoSlide();
-    }, { passive: true });
+  // Create dots
+  for (var i = 0; i < totalSlides; i++) {
+    var dot = document.createElement('button');
+    dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.dataset.index = i;
+    dotsContainer.appendChild(dot);
   }
+
+  var dots = dotsContainer.querySelectorAll('.testimonial-dot');
+
+  function goToSlide(index) {
+    currentSlide = index;
+
+    track.style.transform =
+      'translateX(-' + (currentSlide * 100) + '%)';
+
+    dots.forEach(function (d, idx) {
+      d.classList.toggle('active', idx === currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    goToSlide((currentSlide + 1) % totalSlides);
+  }
+
+  function startAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(nextSlide, 5000);
+  }
+
+  // Dot click
+  dotsContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('testimonial-dot')) {
+      clearInterval(autoSlideInterval);
+      goToSlide(parseInt(e.target.dataset.index));
+      startAutoSlide();
+    }
+  });
+
+  // Start auto-slide
+  startAutoSlide();
+
+  // Pause on hover
+  track.addEventListener('mouseenter', function () {
+    clearInterval(autoSlideInterval);
+  });
+
+  track.addEventListener('mouseleave', function () {
+    startAutoSlide();
+  });
+
+  // Touch support
+  var touchStartX = 0;
+  var touchEndX = 0;
+
+  track.addEventListener('touchstart', function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+    clearInterval(autoSlideInterval);
+  }, { passive: true });
+
+  track.addEventListener('touchend', function (e) {
+    touchEndX = e.changedTouches[0].screenX;
+
+    var diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        goToSlide((currentSlide + 1) % totalSlides);
+      } else {
+        goToSlide(
+          (currentSlide - 1 + totalSlides) % totalSlides
+        );
+      }
+    }
+
+    startAutoSlide();
+  }, { passive: true });
+}
+
+
+// --- Initialize Collaboration Sliders ---
+
+// First collaboration
+initCollaborationSlider(
+  'testimonialTrack',
+  'testimonialDots',
+  'First collaboration'
+);
+
+// Second collaboration - Chitana
+initCollaborationSlider(
+  'chitanaTestimonialTrack',
+  'chitanaTestimonialDots',
+  'Chitana collaboration'
+);
 
   // --- WhatsApp Link Handler ---
   document.addEventListener('click', function (e) {
